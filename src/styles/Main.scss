@@ -1,0 +1,84 @@
+@import "Variables";
+@import "Breakpoints";
+
+h2 {
+  font-family: "Nunito";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  text-align: center;
+  @include sm{
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+}
+
+.section-users{
+ display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 50px;
+
+}
+
+.users {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 29px;
+
+  @include lg{
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  @include md{
+    padding-left: 32px;
+    padding-right: 32px;
+
+  }
+  @include sm{
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+
+  .user {
+    background-color: $white;
+    text-align: center;
+    padding: 20px;
+    @include typography;
+    word-break: break-word;
+
+
+    @include md{
+      flex: 1 1 24%;
+    }
+
+    @include lg{
+      flex: 1 1 30%;
+    }
+
+    @include xl{
+      flex: 1 1 30%;
+    }
+
+    @include sm{
+      flex: 1 1 100%;
+    }
+
+    .avatar{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .name{
+      margin-bottom: 20px;
+    }
+
+  }
+}

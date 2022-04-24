@@ -1,0 +1,35 @@
+@import "Variables";
+@import "Breakpoints";
+
+.hero {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/pexels-alexandr-podvalny-1227513 (1).jpeg") bottom;
+  background-size: cover;
+
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 140px;
+
+  .wrap-center {
+    color: $white;
+    width: 380px;
+    text-align: center;
+
+    @include sm{
+      padding-left: 16px;
+      padding-right: 16px;
+
+    }
+
+    .title {
+      @include title;
+      margin-bottom: 21px;
+    }
+
+    p {
+      @include typography;
+      margin-bottom: 32px;
+    }
+  }
+}

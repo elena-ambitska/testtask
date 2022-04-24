@@ -1,0 +1,26 @@
+@import "Breakpoints";
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+
+  @include lg{
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  @include md{
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @include sm{
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+  .list-btn {
+    display: flex;
+    column-gap: 10px;
+  }
+}

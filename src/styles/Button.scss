@@ -1,0 +1,18 @@
+@import "./Variables.scss";
+
+
+.button{
+  width: 100px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  border-radius: 80px;
+  border:none;
+
+  background-color: $yellow;
+  color:$black;
+  @include typography;
+  &:hover{
+    background: rgba(255, 255, 0, 0.45);
+  }
+}

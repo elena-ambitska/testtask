@@ -1,0 +1,30 @@
+$yellow: rgba(244, 224, 65, 1);
+$black: rgba(0, 0, 0, 0.87);
+$white: rgba(255, 255, 255, 1);
+$grey: rgba(126, 126, 126, 1);
+
+@mixin typography {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: center;
+
+}
+
+@mixin title{
+  font-family: 'Nunito', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  text-align: center;
+
+}
+
+@mixin small{
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+
+}

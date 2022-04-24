@@ -1,0 +1,116 @@
+@import "Variables";
+@import "Breakpoints";
+
+//custom input[type="file"]
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.custom-file-input::before {
+  content: 'Upload';
+  display: inline-block;
+  color: $black;
+  border: 1px solid $black;
+  padding: 14px 15px;
+  cursor: pointer;
+  border-radius: 4px 0 0 4px;
+  height: -webkit-fill-available;
+  @include typography;
+}
+
+.custom-file-input:hover::before {
+  border-color: black;
+}
+
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.custom-file-input::after {
+  content: "Upload your photo";
+  position: absolute;
+  left: 90px;
+  @include typography;
+  padding-top: 15px;
+  color: $grey;
+}
+
+.custom-file-input {
+  color: transparent;
+  position: relative;
+}
+
+.section-form{
+  margin-top: 140px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 380px;
+  margin: 50px auto;
+
+  @include sm{
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+  .wrap-input {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+
+    input {
+      padding-left: 14px;
+    }
+
+    legend {
+      margin-top: -46px;
+      color: $grey;
+      @include small;
+    }
+
+  }
+
+  p {
+    padding-top: 25px;
+    @include typography;
+    text-align: left;
+    padding-bottom: 11px;
+  }
+
+  input {
+    height: 54px;
+    color: $grey;
+    border: 1px solid rgba(208, 207, 207, 1);
+    border-radius: 4px;
+
+  }
+  .button{
+    margin:50px auto;
+  }
+
+  .positions{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-bottom: 40px;
+
+
+    label{
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+      column-gap: 10px;
+      padding-bottom: 7px;
+      @include typography;
+    }
+
+    input{
+      height: auto;
+
+    }
+  }
+}
