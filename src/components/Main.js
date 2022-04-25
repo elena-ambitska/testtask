@@ -2,19 +2,23 @@ import "../styles/Main.scss";
 import {useContext, useEffect, useState} from "react";
 import {Button} from "./Button";
 import {UserContext} from "../context";
+import {Loader} from "./Loader";
+
 
 const LINK = "https://frontend-test-assignment-api.abz.agency/api/v1/users?count=6"
 
 export const Main = () => {
-
     const {users, setUsers} = useContext(UserContext);
     const [page, setPage] = useState(1);
     const [showMoreBtn, setShowMoreBtn] = useState(true);
+    const [isLoading, setLoading] = useState(false);
 
 
     function getUsers() {
+        setLoading(true)
         fetch(LINK + `&page=${page}`).then((response) => response.json())
             .then((data) => {
+                setLoading(false);
                 setShowMoreBtn(()=>{
                     return page !== data.total_pages
                 })
@@ -41,6 +45,7 @@ export const Main = () => {
     return (
         <section className="section-users">
             <h2>Working with GET request</h2>
+            <Loader isLoading={isLoading}/>
             <ul className="users">
                 {users.map(user => {
                     return (

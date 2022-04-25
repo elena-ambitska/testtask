@@ -6,6 +6,7 @@ import {useEffect, useState, useContext} from "react";
 import {getUser, sendRequest} from "../utils/serviceForm";
 import {UserContext} from "../context";
 import {InputError} from "./InputError";
+import {Loader} from "./Loader";
 
 
 export const Form = () => {
@@ -14,6 +15,8 @@ export const Form = () => {
     const [errors, setErrors] = useState({})
     const {users, setUsers} = useContext(UserContext);
     const {fields, changeFieldValue} = useFormFields(new FormData())
+    const [isLoading, setLoading] = useState(false);
+
     useEffect(() => {
         getPosition().then(result => setPositions(() => {
             return result.positions;
@@ -23,8 +26,10 @@ export const Form = () => {
     const createUser = (e)=>{
         e.preventDefault();
         sendRequest(fields).then(async (response) => {
+            setLoading(true);
             const newUser = await getUser(response.user_id);
             setUsers((prevUsers) => {
+                setLoading(false);
                 return [newUser.user, ...prevUsers];
             })
             setErrors({})
@@ -34,7 +39,9 @@ export const Form = () => {
 
     return (<section className="section-form">
             <h2>Working with POST request</h2>
+
             <form onSubmit={createUser}>
+                <Loader isLoading={isLoading}/>
                 <div className="wrap-input">
                     <input type="text" name="name" placeholder="Your name"
                            onChange={changeFieldValue}
